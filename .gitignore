@@ -1,0 +1,5 @@
+# task-manager-pro/.gitignore
+node_modules/
+.env
+client/dist/
+.DS_Store
