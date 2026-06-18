@@ -1,5 +1,4 @@
 const User = require('../models/User'); // Adjust path if your models folder is elsewhere
-const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
