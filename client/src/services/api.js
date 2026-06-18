@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+// Use relative path for API calls - works in both development and production
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: import.meta.env.VITE_API_URL || '/api',
 });
 
 // Intercept requests to attach the JWT token
