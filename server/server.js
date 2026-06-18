@@ -11,6 +11,7 @@ const app = express();
 // Core Middleware
 app.use(cors());
 app.use(express.json()); // Parses incoming JSON payloads
+app.use(express.urlencoded({ extended: false })); // Parses URL-encoded payloads
 
 // Mount Routes
 app.use('/api/auth', require('./routes/authRoutes'));
