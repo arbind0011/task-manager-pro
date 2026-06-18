@@ -96,8 +96,27 @@ const Dashboard = () => {
    return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <h1>Workspace</h1>
-                <button onClick={logout} className="btn-secondary">Logout</button>
+                <div>
+                    <h1 style={{ marginBottom: '0.3rem' }}>Workspace</h1>
+                    <p style={{ fontSize: '0.9rem', color: '#999' }}>Manage and track all your tasks in one place</p>
+                </div>
+                <button 
+                    onClick={logout} 
+                    style={{
+                        padding: '0.7rem 1.5rem',
+                        background: '#6c757d',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        transition: 'background 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.background = '#5a6268'}
+                    onMouseLeave={(e) => e.target.style.background = '#6c757d'}
+                >
+                    Logout
+                </button>
             </header>
             
             <main className="dashboard-content">
@@ -115,9 +134,30 @@ const Dashboard = () => {
 
                 <div className="task-grid">
                     {loading ? (
-                        <p>Loading tasks...</p>
+                        <div style={{
+                            gridColumn: '1 / -1',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            backgroundColor: '#f9f9f9',
+                            borderRadius: '8px',
+                            border: '1px solid #e0e0e0'
+                        }}>
+                            <p style={{ fontSize: '1.1rem', color: '#666', margin: 0 }}>⏳ Loading your tasks...</p>
+                        </div>
                     ) : processedTasks.length === 0 ? (
-                        <p>No tasks match your criteria.</p>
+                        <div style={{
+                            gridColumn: '1 / -1',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            backgroundColor: '#f0f8ff',
+                            borderRadius: '8px',
+                            border: '2px dashed #007bff'
+                        }}>
+                            <p style={{ fontSize: '1.2rem', color: '#333', marginBottom: '0.5rem', fontWeight: 'bold' }}>📭 No tasks found</p>
+                            <p style={{ fontSize: '0.95rem', color: '#666' }}>
+                                {searchQuery || filter !== 'All' ? 'Try adjusting your filters or search' : 'Create your first task to get started!'}
+                            </p>
+                        </div>
                     ) : (
                         processedTasks.map(task => (
                             <TaskCard 
