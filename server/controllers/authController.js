@@ -1,7 +1,6 @@
 const User = require('../models/User'); // Adjust path if your models folder is elsewhere
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 // @desc    Register a new user
 // @route   POST /api/auth/register
