@@ -22,9 +22,10 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
     // 2. Catch-all route to serve React's index.html
-    app.get('*', (req, res) =>
+    app.get(/(.*)/, (req, res) =>
         res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'))
     );
+    
 } else {
     // Fallback for development mode
     app.get('/', (req, res) => res.send('API is running...'));
